@@ -6,15 +6,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-dataPath = "Пример данных/"   # папка с файлами; для своих данных: dataPath = "data/"
+dataPath = "data/"
 
 # ---------- данные калибровки (поменяйте на свои) ----------
 p0 = 0          # давление в первом файле калибровки, Па
-p1 = 45         # давление во втором файле (по манометру), Па
-calibSteps = 500  # на сколько шагов сдвигали трубку
-calibMm = 18      # на сколько миллиметров она сдвинулась
+p1 = 50
+calibSteps = 200
+calibMm = 7
 rho = 1.2       # плотность воздуха, кг/м^3
-distances = [0, 10, 20, 30, 40, 50, 60, 70]   # сечения, мм
+distances = [0,20,40,60,80]
 # ------------------------------------------------------------
 
 
@@ -32,7 +32,7 @@ s, adc0 = readAdc(dataPath + "calibration/%02d Pa.txt" % p0)
 s, adc1 = readAdc(dataPath + "calibration/%02d Pa.txt" % p1)
 adcPoints = [np.mean(adc0), np.mean(adc1)]
 pPoints = [p0, p1]
-k, b = np.polyfit(adcPoints, pPoints, 1)     # P = k*N + b
+k, b = 0.0452, 0
 print("k = %.4f Па/отсчёт" % k)
 
 plt.figure()
