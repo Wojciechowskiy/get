@@ -4,6 +4,7 @@
 | --- | --- | --- |
 | `jetFunctions.py` | функции АЦП и шагового двигателя (стартовый набор) | — |
 | `jetMover.py` | двигать трубку Пито вручную | `python3 jetMover.py` |
+| `motorTest.py` | проверка моторчика, если `jetMover.py` не двигает трубку | `python3 motorTest.py` |
 | `jetCheck.py` | проверка датчика давления, если АЦП читает нули | `python3 jetCheck.py` |
 | `jetMeasure.py` | снять профиль или калибровку | `python3 jetMeasure.py "00 mm.txt" 40` |
 | `quickPlot.py` | быстро проверить записанный файл | `python3 quickPlot.py "00 mm.txt"` |
