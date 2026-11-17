@@ -6,6 +6,7 @@
 #
 # 1-й параметр — имя файла, 2-й — число точек, 3-й — шагов между точками (по умолчанию 28 = 1 мм)
 
+import os
 import sys
 import time
 import numpy as np
@@ -57,6 +58,9 @@ try:
         j.stepBackward(count * stepsBetween)
 
     # 5) сохраняем файл: два столбца — шаг и отсчёт АЦП
+    folder = os.path.dirname(filename)
+    if folder != "":
+        os.makedirs(folder, exist_ok=True)   # создать папку, если её нет
     header = "%s, points %d, steps between %d, samples %d, %.0f s\nstep adc" % (
         filename, count, stepsBetween, samples, time.time() - start)
     np.savetxt(filename, np.array(rows), fmt=["%d", "%.1f"], header=header)
