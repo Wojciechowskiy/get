@@ -6,7 +6,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-dataPath = "Пример данных/"   # папка с файлами (потом поменяйте на свою)
+dataPath = "Пример данных/"   # папка с файлами; для своих данных: dataPath = "data/"
 
 # ---------- данные калибровки (поменяйте на свои) ----------
 p0 = 0          # давление в первом файле калибровки, Па
@@ -28,8 +28,8 @@ def readAdc(filename):
 
 
 # ===== 1. Калибровка давления =====
-s, adc0 = readAdc(dataPath + "calibration/00 Pa.txt")
-s, adc1 = readAdc(dataPath + "calibration/45 Pa.txt")
+s, adc0 = readAdc(dataPath + "calibration/%02d Pa.txt" % p0)
+s, adc1 = readAdc(dataPath + "calibration/%02d Pa.txt" % p1)
 adcPoints = [np.mean(adc0), np.mean(adc1)]
 pPoints = [p0, p1]
 k, b = np.polyfit(adcPoints, pPoints, 1)     # P = k*N + b
