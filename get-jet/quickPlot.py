@@ -26,4 +26,9 @@ plt.xlabel("Шаг двигателя")
 plt.ylabel("Отсчёт АЦП")
 plt.title(filename)
 plt.grid()
+
+picture = filename.replace(".txt", ".png")   # 00 mm.txt -> 00 mm.png
+plt.savefig(picture)
+print("График сохранён:", picture)
+
 plt.show()
